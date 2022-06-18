@@ -62,8 +62,6 @@ def cartoon_post():
 def cartoon_delete():
     delete_receive = request.form['delete_give']
     db.cartoons.delete_one({'c_number': delete_receive})
-    card_list = list(db.cartoons.find({}, {'_id': False}))
-    return jsonify({'cartoons_post':card_list})
 
 @app.route("/cartoon", methods=["GET"])
 def cartoon_get():
